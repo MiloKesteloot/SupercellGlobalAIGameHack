@@ -119,6 +119,53 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &250472951
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 250472953}
+  - component: {fileID: 250472952}
+  m_Layer: 0
+  m_Name: HealthBarManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &250472952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250472951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 554f4acb6148f99448f6cccbc448591f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  decreaseRate: 5
+--- !u!4 &250472953
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250472951}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,9 +524,9 @@ MonoBehaviour:
   spawnChance: 0.5
   randomSize: 0
   prefabs:
-  - {fileID: 8191741661222049003, guid: d827600163b215146af332f284f91c48, type: 3}
-  - {fileID: 8191741661222049003, guid: b8ef7d18b3d38f14aa03f15cbd4e7a1d, type: 3}
-  - {fileID: 8191741661222049003, guid: 55b7b22460213cf4082853ed525c17f4, type: 3}
+  - {fileID: 8618749966339739370, guid: f92d752304e145545a74f7134c517927, type: 3}
+  - {fileID: 3280205317716872723, guid: a2a09d5617534cd4bb0916b24a2d2eda, type: 3}
+  - {fileID: 3371017035771217030, guid: eb29e9ab1e641854892707b59b85dd6b, type: 3}
   gridSize: 0
 --- !u!156049354 &939140573
 Grid:
@@ -660,3 +707,4 @@ SceneRoots:
   - {fileID: 1117946535}
   - {fileID: 1894571712}
   - {fileID: 939140574}
+  - {fileID: 250472953}
