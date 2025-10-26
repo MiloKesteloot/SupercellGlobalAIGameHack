@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
@@ -12,7 +13,13 @@ public class CameraFollow : MonoBehaviour
     public float deadZoneRadius = 3;
     public float maxRadius = 5;
     public float maxCamSpeed = 20;
-    public float zoomOutspeed = 10;
+
+
+    public float baseHeight = 25;
+    public float minZoom = -2;
+    public float maxZoom = 2;
+    public float zoomExp = 0.0f;
+    public float zoomRate = 2f;   // per 
 
     // Start is called before the first frame update
     void Start() {
@@ -33,8 +40,12 @@ public class CameraFollow : MonoBehaviour
             speedFactor = speedFactor * speedFactor;
             float cameraSpeed = maxCamSpeed * speedFactor;
             vel = unitDisplacment * cameraSpeed;
-            float zoomRatio = cameraSpeed / zoomOutspeed;
-            //camera.orthographicSize = 5 * (float)Math.Sqrt(1 + zoomRatio * zoomRatio);
+            
+            float zoomDir = 0;
+            if (Input.GetKey(KeyCode.Q)) zoomDir += 1;
+            if (Input.GetKey(KeyCode.E)) zoomDir -= 1;
+            zoomExp = Mathf.Clamp(zoomExp + zoomDir * zoomRate * Time.deltaTime, minZoom, maxZoom);
+            pos.y = Mathf.Pow(2, zoomExp) * baseHeight;
 
         }
         pos += vel * Time.deltaTime;
