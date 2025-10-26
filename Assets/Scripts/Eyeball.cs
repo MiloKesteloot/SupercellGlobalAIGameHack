@@ -56,8 +56,8 @@ public class Eyeball : Organ {
 
         // Draw lines in Scene view
         float viewDistance = 100;
-        Debug.DrawRay(origin, leftDir * viewDistance, color);
-        Debug.DrawRay(origin, rightDir * viewDistance, color);
+        Debug.DrawRay(origin, leftDir * viewDistance, color, duration: 0, depthTest: false);
+        Debug.DrawRay(origin, rightDir * viewDistance, color, duration: 0, depthTest: false);
     }
 }
 

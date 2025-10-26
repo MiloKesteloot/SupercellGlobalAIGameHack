@@ -6,10 +6,4 @@ public class Food : MonoBehaviour
     void Start() {
         Manager.foodItems.Add(this);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
