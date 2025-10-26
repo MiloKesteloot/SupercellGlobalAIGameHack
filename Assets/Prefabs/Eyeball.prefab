@@ -156,11 +156,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8edd3fa1a712bd48846572eca7c6edf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inupts: []
-  entity: {fileID: 0}
   weight: 1
+  inupts: []
+  player: {fileID: 0}
   value: 0
   _next_value: 0
+  fieldOfView: 30
+  viewDistance: 20
 --- !u!1 &6729010894030617845
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,19 +4,19 @@ using UnityEngine;
 public class Player : MonoBehaviour {
     public Eyeball eyeball;
     public Flipper flipper;
+    public Bias bias;
 
     [HideInInspector] public Rigidbody rb;
 
     public void Start() {
         rb = GetComponent<Rigidbody>();
 
-        Organ eye1  = CreateOrgan(eyeball, 1, 1, 0);
-        Organ eye2  = CreateOrgan(eyeball,-1, 1, 0);
-        Organ flip1 = CreateOrgan(flipper, 1,-1, 0);
-        Organ flip2 = CreateOrgan(flipper, -1, -1, 0);
+        Organ eye1  = CreateOrgan(eyeball, 1, 1, 0); eye1.transform.Rotate(0, 15, 0);
+        Organ eye2  = CreateOrgan(eyeball,-1, 1, 0); eye2.transform.Rotate(0, -15, 0);
+        Organ flip1 = CreateOrgan(flipper, 1,-1, 0); flip1.inupts.Add(eye2);
+        Organ flip2 = CreateOrgan(flipper,-1,-1, 0); flip2.inupts.Add(eye1);
 
-        flip1.inupts.Add(eye2);
-        flip2.inupts.Add(eye1);
+        // Bias bias1 = (Bias) CreateOrgan(bias, 1, 1, 0); bias1.transform.Rotate(0, 15, 0);
     }
 
     public Organ CreateOrgan(Organ prefab, float x, float z, float r) {

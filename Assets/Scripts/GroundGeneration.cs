@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Grid))]
 public class GroundGeneration : MonoBehaviour
 {
     public float spawnChance = 0.5f;
+    public bool randomSize = false;
     public GameObject[] prefabs;
     List<GameObject> queue = new List<GameObject>();
 
@@ -52,7 +53,14 @@ public class GroundGeneration : MonoBehaviour
                 // Quaternion randomRotation = Quaternion.Euler(0, 0, randomAngle);
                 Quaternion randomRotation = Quaternion.Euler(0, 0, 0);
 
-                Instantiate(getRandomObject(), backToWorldPos, randomRotation);
+                GameObject go = Instantiate(getRandomObject(), backToWorldPos, randomRotation);
+                go.transform.Rotate(0, Random.Range(0f, 360f), 0);
+
+                if (randomSize) {
+                    float scale = Random.Range(3f, 5f);
+                    go.transform.localScale = new Vector3(scale, scale, scale);
+                }
+
             }
         }
     }

@@ -7,7 +7,6 @@ public class Flipper : Organ {
 
     public override void Action() {
         Vector3 forceDirection = transform.forward;
-        Debug.Log(value);
         player.rb.AddForceAtPosition(thrustForce * value * forceDirection, transform.position);
     }
 }

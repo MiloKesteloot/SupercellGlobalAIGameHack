@@ -3,10 +3,22 @@ using UnityEngine;
 public class Eyeball : Organ {
     [Header("Eyeball Settings")]
     public float fieldOfView = 90f;   // degrees (e.g. 90 means 45° to each side)
+    public float viewDistance = 4f;   // range the eye can see
 
     public override float ExternalSignal() {
-        if (IsInFieldOfView(GetMouseWorldPosition())) return 1;
-        return 0;
+        bool active = checkAll();
+        Vector3 origin = transform.position; // re-getting these is crappy, quick fix
+        Vector3 forward = transform.forward;
+        DrawFOVDebugLines(origin, forward, active ? Color.green : Color.red);
+        return active ? 1 : 0;
+    }
+
+    bool checkAll() {
+        if (IsInFieldOfView(GetMouseWorldPosition())) return true;
+        foreach (Food food in Manager.foodItems) {
+            if (IsInFieldOfView(food.transform.position)) return true;
+        }
+        return false;
     }
 
     Vector3 GetMouseWorldPosition() {
@@ -20,15 +32,16 @@ public class Eyeball : Organ {
         return Vector3.zero; // fallback if ray doesn't hit
     }
 
-    public bool IsInFieldOfView(Vector3 target) {
+    bool IsInFieldOfView(Vector3 target) {
         Vector3 origin = transform.position;
         Vector3 forward = transform.forward;
-        Vector3 directionToTarget = (target - origin).normalized;
+        Vector3 toTarget = target - origin;
+        if (toTarget.magnitude > viewDistance) return false;
+        Vector3 directionToTarget = toTarget.normalized;
         float angle = Vector3.Angle(forward, directionToTarget);
 
         bool inFOV = angle <= fieldOfView / 2f;
 
-        DrawFOVDebugLines(origin, forward, inFOV ? Color.green : Color.red);
 
         return inFOV;
     }
