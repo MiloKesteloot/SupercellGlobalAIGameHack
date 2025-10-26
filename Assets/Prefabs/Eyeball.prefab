@@ -52,7 +52,7 @@ MonoBehaviour:
   value: 0
   _next_value: 0
   fieldOfView: 30
-  viewDistance: 20
+  viewDistance: 10
 --- !u!135 &8231765463567044330
 SphereCollider:
   m_ObjectHideFlags: 0

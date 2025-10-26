@@ -31,6 +31,8 @@ public class Player : MonoBehaviour {
     public void FixedUpdate() {
         Organ.UpdateAll();
     }
+
+    
 }
 
 
