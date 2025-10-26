@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -12,7 +11,7 @@ public class GroundGeneration : MonoBehaviour
     List<GameObject> queue = new List<GameObject>();
 
     private Camera camera;
-    private List<String> touchedSpots = new();
+    private List<string> touchedSpots = new();
 
     private Grid grid;
     public int gridSize;
@@ -35,19 +34,19 @@ public class GroundGeneration : MonoBehaviour
 
         for (int x = 0; x < (gridPos2.x - gridPos.x) * 2 + 2; x++) {
             for (int z = 1; z < (gridPos2.z - gridPos.z) * 2 + 2; z++) {
-                String str = "" + (gridPos.x + x) + "," + (gridPos.z + z);
+                string str = "" + (gridPos.x + x) + "," + (gridPos.z + z);
                 if (touchedSpots.Contains(str)) continue;
                 touchedSpots.Add(str);
                 if (gridPos.x + x == 0 && gridPos.z + z == 0) continue;
 
-                if (UnityEngine.Random.Range(0, 1) > spawnChance) {
+                if (Random.Range(0, 1) > spawnChance) {
                     // continue;
                 }
 
                 Vector3Int newPos = new(gridPos.x + x, 0, gridPos.z + z);
                 Vector3 backToWorldPos = grid.CellToWorld(newPos);
-                backToWorldPos.x += UnityEngine.Random.Range(-gridSize / 2f, gridSize / 2f);
-                backToWorldPos.z += UnityEngine.Random.Range(-gridSize / 2f, gridSize / 2f);
+                backToWorldPos.x += Random.Range(-gridSize / 2f, gridSize / 2f);
+                backToWorldPos.z += Random.Range(-gridSize / 2f, gridSize / 2f);
 
                 // float randomAngle = UnityEngine.Random.Range(0f, 360f);
                 // Quaternion randomRotation = Quaternion.Euler(0, 0, randomAngle);
