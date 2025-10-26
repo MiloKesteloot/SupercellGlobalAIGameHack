@@ -46,9 +46,22 @@ public abstract class Organ : MonoBehaviour {
         }
     }
 
+    public void Destroy() {
+        if (_instances.Contains(this)) _instances.Remove(this);
+        foreach (Organ organ in _instances) {
+            if (organ.inupts.Contains(this)) organ.inupts.Remove(this);
+        }
+        Destroy(this.gameObject);
+    }
 
     // on creatiion add instance to list of all organs
     public void Start() {
         _instances.Add(this);
+    }
+
+    public void AddInput(Organ organ) {
+        if (this.inupts.Contains(organ)) return;
+        this.inupts.Add(organ);
+        // Instantiate
     }
 }

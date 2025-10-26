@@ -326,7 +326,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 279513237}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1117946533}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: BuildEyeball
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &279513237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -939,7 +951,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 941760098}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1117946533}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: BuildFlipper
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &941760098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1011,6 +1035,7 @@ MonoBehaviour:
   eyeball: {fileID: 1204396515477576965, guid: bef84d0e723d0904f92d1e90c99c4479, type: 3}
   flipper: {fileID: 1413290159113416872, guid: e664cb9b0f6e04e4a8bf7805d6c7c8b7, type: 3}
   bias: {fileID: 4180013811430641358, guid: 1c81ee15bc3052d49aae9f7fdb809e5f, type: 3}
+  neuron: {fileID: 0}
   rb: {fileID: 0}
 --- !u!4 &1117946535
 Transform:
@@ -1067,7 +1092,7 @@ GameObject:
   - component: {fileID: 1676352942}
   - component: {fileID: 1676352941}
   m_Layer: 5
-  m_Name: Nerve
+  m_Name: Bias
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1135,7 +1160,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1676352942}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1117946533}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: BuildBias
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1676352942
 MonoBehaviour:
   m_ObjectHideFlags: 0

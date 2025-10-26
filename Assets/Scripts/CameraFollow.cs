@@ -13,15 +13,14 @@ public class CameraFollow : MonoBehaviour
     public float maxRadius = 5;
     public float maxCamSpeed = 20;
     public float zoomOutspeed = 10;
+
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         Vector3 displacment = objectToFollow.transform.position - transform.position;
         displacment.y = 0;
         
