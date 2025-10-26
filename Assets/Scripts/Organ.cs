@@ -15,7 +15,7 @@ public abstract class Organ : MonoBehaviour {
 
     // public static float decayRate = 0.9f;
 
-    // [HideInInspector]
+    [HideInInspector]
     public float value = 0f;
     [HideInInspector]
     public float _next_value = 0f;

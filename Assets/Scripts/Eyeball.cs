@@ -55,9 +55,13 @@ public class Eyeball : Organ {
         Vector3 rightDir = Quaternion.Euler(0, halfFOV, 0) * forward;
 
         // Draw lines in Scene view
-        float viewDistance = 100;
         Debug.DrawRay(origin, leftDir * viewDistance, color, duration: 0, depthTest: false);
         Debug.DrawRay(origin, rightDir * viewDistance, color, duration: 0, depthTest: false);
+
+        Vector3 leftTip = origin + leftDir * viewDistance;
+        Vector3 rightTip = origin + rightDir *viewDistance;
+
+        Debug.DrawRay(leftTip, rightTip - leftTip, color, duration: 0, depthTest: false);
     }
 }
 
