@@ -12,7 +12,7 @@ public class Flipper : Organ {
 	
 		void Update()
 	{
-		transform.Rotate(Vector3.forward, 180f * Time.deltaTime * value, Space.Self);
+		transform.Rotate(Vector3.forward, 1000f * Time.deltaTime * value, Space.Self);
 	}
 
 }
