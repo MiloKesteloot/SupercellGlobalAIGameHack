@@ -6,16 +6,16 @@ public abstract class Organ : MonoBehaviour {
     [Header("Organ Settings")]
     public float weight;
 
-    [HideInInspector] public static List<Organ> _instances = new();
+    public static List<Organ> _instances = new();
 
-    [HideInInspector] public List<Organ> inupts;
+    public List<Organ> inupts;
 
-    [HideInInspector] public Player player;
+    public Player player;
 
     // public static float decayRate = 0.9f;
 
-    [HideInInspector] public float value = 0f;
-    [HideInInspector] public float _next_value = 0f;
+    public float value = 0f;
+    public float _next_value = 0f;
 
     // Sensors override this method
     public virtual float ExternalSignal() {
@@ -34,7 +34,10 @@ public abstract class Organ : MonoBehaviour {
             instance._next_value = instance.ExternalSignal();
             foreach (var input in instance.inupts) instance._next_value += input.value * input.weight;
         }
-        foreach (var instance in _instances) instance.value = instance._next_value;
+        foreach (var instance in _instances) {
+            instance.value = instance._next_value;
+            instance.Action();
+        }
     }
 
 

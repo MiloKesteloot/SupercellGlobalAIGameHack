@@ -13,8 +13,7 @@ public class Eyeball : Organ {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Plane plane = new Plane(Vector3.up, Vector3.zero); // Y = 0 plane for top-down view
 
-        if (plane.Raycast(ray, out float distance))
-        {
+        if (plane.Raycast(ray, out float distance)) {
             return ray.GetPoint(distance);
         }
 

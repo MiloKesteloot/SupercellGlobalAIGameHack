@@ -1,17 +1,13 @@
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-[RequireComponent(typeof(Rigidbody2D))]
-public class Player : MonoBehaviour
-{
+[RequireComponent(typeof(Rigidbody))]
+public class Player : MonoBehaviour {
     public Eyeball eyeball;
     public Flipper flipper;
 
     [HideInInspector] public Rigidbody rb;
 
-    public void Start()
-    {
+    public void Start() {
         rb = GetComponent<Rigidbody>();
 
         Organ eye1  = CreateOrgan(eyeball, 1, 1, 0);
@@ -23,15 +19,13 @@ public class Player : MonoBehaviour
         flip2.inupts.Add(eye1);
     }
 
-    public Organ CreateOrgan(Organ prefab, float x, float z, float r)
-    {
-        Organ component = Instantiate(prefab, new Vector3(x, 0, z), Quaternion.Euler(0, r, 0), this.transform);
-        // component.pla
+    public Organ CreateOrgan(Organ prefab, float x, float z, float r) {
+        Organ component = Instantiate(prefab, new Vector3(x, 0, z), Quaternion.Euler(0, r, 0), transform);
+        component.player = this;
         return component;
     }
 
-    public void FixedUpdate()
-    {
+    public void FixedUpdate() {
         Organ.UpdateAll();
     }
 }
