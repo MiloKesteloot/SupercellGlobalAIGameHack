@@ -540,6 +540,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eyeball: {fileID: 1204396515477576965, guid: bef84d0e723d0904f92d1e90c99c4479, type: 3}
   flipper: {fileID: 1413290159113416872, guid: e664cb9b0f6e04e4a8bf7805d6c7c8b7, type: 3}
+  bias: {fileID: 4180013811430641358, guid: 1c81ee15bc3052d49aae9f7fdb809e5f, type: 3}
   rb: {fileID: 0}
 --- !u!4 &1117946535
 Transform:
