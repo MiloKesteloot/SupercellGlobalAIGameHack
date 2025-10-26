@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2397261399195759426
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 0bf9822d7546c9f4c80cbf79155cb7db, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0bf9822d7546c9f4c80cbf79155cb7db, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0bf9822d7546c9f4c80cbf79155cb7db, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0bf9822d7546c9f4c80cbf79155cb7db, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0bf9822d7546c9f4c80cbf79155cb7db, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0bf9822d7546c9f4c80cbf79155cb7db, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0bf9822d7546c9f4c80cbf79155cb7db, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0bf9822d7546c9f4c80cbf79155cb7db, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0bf9822d7546c9f4c80cbf79155cb7db, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0bf9822d7546c9f4c80cbf79155cb7db, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0bf9822d7546c9f4c80cbf79155cb7db, type: 3}
+      propertyPath: m_Name
+      value: YellowFood
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0bf9822d7546c9f4c80cbf79155cb7db, type: 3}
+      propertyPath: m_TagString
+      value: "using UnityEngine;\r\nusing UnityEngine.UI;\r\n\r\npublic class HealthBarUI
+        : MonoBehaviour\r\n{\r\n    public float maxHealth = 100f;\r\n    public
+        float currentHealth;\r\n    public float decreaseRate = 5f; // health lost
+        per second\r\n\r\n    private Image healthBar;\r\n\r\n    void Start()\r\n   
+        {\r\n        currentHealth = maxHealth;\r\n\r\n        // Create a Canvas\r\n       
+        GameObject canvasObj = new GameObject(\"HealthCanvas\");\r\n        Canvas
+        canvas = canvasObj.AddComponent<Canvas>();\r\n        canvas.renderMode =
+        RenderMode.ScreenSpaceOverlay;\r\n        canvasObj.AddComponent<CanvasScaler>();\r\n       
+        canvasObj.AddComponent<GraphicRaycaster>();\r\n\r\n        // Create a background
+        for the bar (optional)\r\n        GameObject bgObj = new GameObject(\"HealthBarBackground\");\r\n       
+        bgObj.transform.SetParent(canvasObj.transform);\r\n        Image bgImage
+        = bgObj.AddComponent<Image>();\r\n        bgImage.color = new Color(0, 0,
+        0, 0.5f);\r\n\r\n        RectTransform bgRect = bgObj.GetComponent<RectTransform>();\r\n       
+        bgRect.anchorMin = new Vector2(1, 0); // bottom-right anchor\r\n        bgRect.anchorMax
+        = new Vector2(1, 0);\r\n        bgRect.pivot = new Vector2(1, 0);\r\n       
+        bgRect.anchoredPosition = new Vector2(-20, 20); // padding from bottom-right\r\n       
+        bgRect.sizeDelta = new Vector2(200, 25);\r\n\r\n        // Create the red
+        health bar\r\n        GameObject barObj = new GameObject(\"HealthBar\");\r\n       
+        barObj.transform.SetParent(bgObj.transform);\r\n        healthBar = barObj.AddComponent<Image>();\r\n       
+        healthBar.color = Color.red;\r\n\r\n        RectTransform barRect = barObj.GetComponent<RectTransform>();\r\n       
+        barRect.anchorMin = new Vector2(0, 0);\r\n        barRect.anchorMax = new
+        Vector2(1, 1);\r\n        barRect.pivot = new Vector2(0, 0.5f);\r\n       
+        barRect.offsetMin = new Vector2(0, 0);\r\n        barRect.offsetMax = new
+        Vector2(0, 0);\r\n    }\r\n\r\n    void Update()\r\n    {\r\n        // Decrease
+        health over time\r\n        currentHealth -= decreaseRate * Time.deltaTime;\r\n       
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);\r\n\r\n       
+        // Update the width of the red bar\r\n        float fillAmount = currentHealth
+        / maxHealth;\r\n        healthBar.rectTransform.localScale = new Vector3(fillAmount,
+        1, 1);\r\n    }\r\n}\r\n"
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0bf9822d7546c9f4c80cbf79155cb7db, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -2289566403190287840}
+  m_SourcePrefab: {fileID: 100100000, guid: 0bf9822d7546c9f4c80cbf79155cb7db, type: 3}
+--- !u!1 &3280205317716872723 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0bf9822d7546c9f4c80cbf79155cb7db, type: 3}
+  m_PrefabInstance: {fileID: 2397261399195759426}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-2289566403190287840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3280205317716872723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fa9a17067b1e334fa2e9aaaaf31b39a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
