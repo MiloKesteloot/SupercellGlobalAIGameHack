@@ -531,7 +531,11 @@ MonoBehaviour:
   deadZoneRadius: 0.2
   maxRadius: 3
   maxCamSpeed: 20
-  zoomOutspeed: 10
+  baseHeight: 25
+  minZoom: -2
+  maxZoom: 2
+  zoomExp: 0
+  zoomRate: 2
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
