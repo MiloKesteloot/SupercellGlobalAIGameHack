@@ -64,4 +64,9 @@ public abstract class Organ : MonoBehaviour {
         this.inupts.Add(organ);
         // Instantiate
     }
+
+    public void RemoveInput(Organ organ) {
+        if (!this.inupts.Contains(organ)) return;
+        this.inupts.Remove(organ);
+    }
 }

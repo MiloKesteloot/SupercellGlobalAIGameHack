@@ -10,6 +10,7 @@ public class Player : MonoBehaviour {
     public static GameObject neuronStatic;
     [HideInInspector] public Rigidbody rb;
     private Organ dragging;
+    private Organ connecting;
 
     public void Start() {
         rb = GetComponent<Rigidbody>();
@@ -67,6 +68,14 @@ public class Player : MonoBehaviour {
     }
     
     void NonDraggingUpdate() {
+        if (connecting) {
+            Debug.DrawRay(connecting.transform.position, GetMouseWorldPosition() - connecting.transform.position, Color.red, duration: 0, depthTest: false);
+
+            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1)) {
+                connecting = null;
+            }
+        }
+
         if (Input.GetMouseButtonDown(1)) {
             // Cast a ray from the camera to where the mouse is
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -79,10 +88,43 @@ public class Player : MonoBehaviour {
             }
             return;
         }
+
+        if (Input.GetMouseButtonDown(0)) {
+            // Cast a ray from the camera to where the mouse is
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hit)) {
+                // Check if the clicked object has a component of type Organ (or subclass)
+                Organ organ = hit.collider.GetComponent<Organ>();
+                if (organ != null) {
+
+                    if (connecting == null) {
+                        connecting = organ;
+                    } else {
+                        if (connecting == organ) {
+                            connecting = null;
+                            return;
+                        }
+                        if (connecting.inupts.Contains(organ)) {
+                            connecting.RemoveInput(organ);
+                        }
+                        organ.AddInput(connecting);
+                        connecting = null;
+                    }
+                }
+            }
+            return;
+        }
     }
 
     void DraggingUpdate() {
+        connecting = null;
+
         dragging.transform.position = GetMouseWorldPosition();
+
+        float rotationSpeed = 5000f;
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        dragging.transform.Rotate(-1 * Vector3.up, scroll * rotationSpeed * Time.deltaTime, Space.Self);
+
         if (Input.GetMouseButtonDown(0)) {
             dragging.transform.SetParent(this.transform);
             dragging = null;
