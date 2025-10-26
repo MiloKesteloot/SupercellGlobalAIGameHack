@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8861995369559421787
 Transform:
   m_ObjectHideFlags: 0
@@ -162,7 +162,8 @@ MonoBehaviour:
   player: {fileID: 0}
   value: 0
   _next_value: 0
-  fieldOfView: 90
+  fieldOfView: 30
+  viewDistance: 20
 --- !u!1 &6729010894030617845
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,7 +182,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7530111888458649126
 Transform:
   m_ObjectHideFlags: 0
@@ -328,41 +329,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 96a35848e0a81fd42aee15f9afbf4050, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4427646903921224177}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a35848e0a81fd42aee15f9afbf4050, type: 3}
 --- !u!4 &4912663581862018063 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 96a35848e0a81fd42aee15f9afbf4050, type: 3}
   m_PrefabInstance: {fileID: 4875129015974714340}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &5721429509401634485 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 96a35848e0a81fd42aee15f9afbf4050, type: 3}
-  m_PrefabInstance: {fileID: 4875129015974714340}
-  m_PrefabAsset: {fileID: 0}
---- !u!136 &4427646903921224177
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5721429509401634485}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}

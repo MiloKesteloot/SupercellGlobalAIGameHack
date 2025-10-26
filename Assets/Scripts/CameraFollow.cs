@@ -7,7 +7,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     public GameObject objectToFollow;
-    Vector3 pos = new Vector3(0, 10, 0);
+    Vector3 pos = new Vector3(0, 25, 0);
     Vector3 vel = new Vector3(0, 0, 0);
     public float deadZoneRadius = 3;
     public float maxRadius = 5;
